@@ -1,8 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import ArticleList from './components/ArticleList'
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+    <ArticleList 
+        url='http://localhost:3001/api/articles'
+        pollInterval={2000} />,
+
+    document.getElementById('root')
+);
+
 registerServiceWorker();
