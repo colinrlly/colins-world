@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 
 class ArticleThumbnail extends Component {
 
     render() {
         return (
             <div>
+                <Link to='/test'>Test Link</Link>
                 <p>{ this.props.title }</p>
                 <p>{ this.props.summary }</p>
                 <p>{ this.props.date }</p>
