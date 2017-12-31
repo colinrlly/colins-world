@@ -98,7 +98,7 @@ router.route('/articles')
     article.summary = req.body.summary,
     article.date = req.body.date,
     article.thumbnail = req.body.thumbnail,
-    article.tags = req.body.tags,
+    article.tags = req.body.tags.split(','),
     article.article = req.body.article
 
     article.save(function(err) {
