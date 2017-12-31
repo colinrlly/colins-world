@@ -1,13 +1,7 @@
-// title={ article.title }
-// summary={ article.summary }
-// date={ article.date }
-// thumbnail={ article.thumbnail }
-// tags={ article.tags }
-// article={ article.article }
-
 import React, { Component } from 'react';
 
 class ArticleThumbnail extends Component {
+
     render() {
         return (
             <div>
