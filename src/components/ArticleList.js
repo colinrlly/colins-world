@@ -7,6 +7,7 @@ class ArticleList extends Component {
         super(props);
         this.state = { data: [] };
         this.loadArticlesFromServer = this.loadArticlesFromServer.bind(this);
+        this.loadArticlesTimer = 0;
     }
 
     loadArticlesFromServer() {
@@ -18,15 +19,18 @@ class ArticleList extends Component {
 
     componentDidMount() {
         this.loadArticlesFromServer();
-        setInterval(this.loadArticlesFromServer, this.props.pollInterval);
+        this.loadArticlesTimer = setInterval(this.loadArticlesFromServer, this.props.pollInterval);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.loadArticlesTimer);
     }
 
     render() {
         let articleNodes = this.state.data.map(article => {
             return (
-                <div>
-                    <h2>Article Thumbnaill</h2>
                     <ArticleThumbnail 
+                        key={ article['_id'] }
                         title={ article.title }
                         summary={ article.summary }
                         date={ article.date }
@@ -34,7 +38,6 @@ class ArticleList extends Component {
                         tags={ article.tags }
                         article={ article.article }
                     />
-                </div>
             )
         })
 

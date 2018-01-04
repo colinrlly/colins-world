@@ -4,7 +4,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
-var Article = require('./src/model/ArticleModel')
+var Article = require('./src/models/ArticleModel')
 
 //and create our instances
 var app = express();

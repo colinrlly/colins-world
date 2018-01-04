@@ -8,9 +8,6 @@ import registerServiceWorker from './registerServiceWorker';
 ReactDOM.render((
     <Router>
         <App/>
-        {/* <ArticleList 
-            url='http://localhost:3001/api/articles'
-            pollInterval={2000} /> */}
     </Router>
 ), document.getElementById('root'));
 
