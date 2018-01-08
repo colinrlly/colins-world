@@ -6,19 +6,17 @@ import ArticleContainer from './ArticleContainer'
 class App extends Component {
     render() {
         return (
-            <div>
-                <Switch>
-                    <Route exact path="/" render={ () => 
-                        <ArticleList 
-                            url='http://localhost:3001/api/articles' 
-                            pollInterval={2000}/>
-                    }/>
-                    <Route path="/articles/:article" render={ ({match}) => 
-                        <ArticleContainer 
-                            article={match.params.article}/>
-                    }/>
-                </Switch>
-            </div>
+            <Switch>
+                <Route exact path="/" render={ () => 
+                    <ArticleList 
+                        url='http://localhost:3001/api/articles' 
+                        pollInterval={2000}/>
+                }/>
+                <Route path="/articles/:article" render={ ({match}) => 
+                    <ArticleContainer 
+                        article={match.params.article}/>
+                }/>
+            </Switch>
         )
     }
 }

@@ -1,29 +1,35 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import axios from 'axios';
 import ArticleThumbnail from './ArticleThumbnail';
+import Isotope from 'isotope-layout'
+
+import '../static/css/articleList.css'
 
 class ArticleList extends Component {
     constructor(props) {
         super(props);
         this.state = { data: [] };
         this.loadArticlesFromServer = this.loadArticlesFromServer.bind(this);
-        this.loadArticlesTimer = 0;
-    }
+        this.initIsotope = this.initIsotope.bind( this );
+}
 
-    loadArticlesFromServer() {
-        axios.get(this.props.url)
-            .then(res => {
+    loadArticlesFromServer( callback ) {
+        axios.get( this.props.url )
+            .then( res => {
                 this.setState({ data: res.data });
+                callback();
             })
     }
 
-    componentDidMount() {
-        this.loadArticlesFromServer();
-        this.loadArticlesTimer = setInterval(this.loadArticlesFromServer, this.props.pollInterval);
+    initIsotope() {
+        var grid = ReactDOM.findDOMNode( this );
+        var iso = new Isotope( grid );
+        console.log(iso);
     }
 
-    componentWillUnmount() {
-        clearInterval(this.loadArticlesTimer);
+    componentDidMount() {
+        this.loadArticlesFromServer( this.initIsotope );
     }
 
     render() {
@@ -42,8 +48,7 @@ class ArticleList extends Component {
         })
 
         return (
-            <div>
-                <h1>Article List</h1>
+            <div className="ArticleList">
                 { articleNodes }
             </div>
         )
