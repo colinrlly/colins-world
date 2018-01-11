@@ -12,7 +12,7 @@ class ArticleList extends Component {
         this.state = { data: [] };
         this.loadArticlesFromServer = this.loadArticlesFromServer.bind(this);
         this.initIsotope = this.initIsotope.bind( this );
-}
+    }
 
     loadArticlesFromServer( callback ) {
         axios.get( this.props.url )
@@ -24,8 +24,13 @@ class ArticleList extends Component {
 
     initIsotope() {
         var grid = ReactDOM.findDOMNode( this );
-        var iso = new Isotope( grid );
-        console.log(iso);
+        new Isotope( grid, {
+            itemSelector: '.ArtThmbContainer',
+            masonry: {
+                columnWidth: 400,
+                isFitWidth: true
+            }
+        });
     }
 
     componentDidMount() {

@@ -1,16 +1,36 @@
+html {
+    background-color: #292929;
+}
+
 .ArticleList {
-    width: 85%;
-    margin: auto auto;
+    margin: 0 auto;
+    max-width: 85%;
+}
+
+.ArtThmbContainer {
+    width: 350px;
+    height: 300px;
+    margin: 0 auto;
+    padding: 0 25px;
 }
 
 .ArticleThumbnail {
-    float: left;
-    width: 250px;
-    height: 250px;
-    background: #e6e5e4;
-    border: 2px solid #b6b5b4;
+    width: 300px;
+    height: 200px;
+    background: #B3B3B3;
+    color: #242424;
+    padding: 25px;
 }
 
-.height-2 {
-    height: 500px;
+.ArticleThumbnail h3 {
+    font-size: 2em;
+    margin-top: 14px;
+}
+
+.ArticleThumbnail p {
+    font-size: 1.2em;
+}
+
+.link {
+    text-decoration: none;
 }
