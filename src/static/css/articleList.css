@@ -24,9 +24,8 @@ html {
 }
 
 .ArticleThumbnail:hover {
-    background: #B3B3B3;
-    border: none;
-    color: #242424;
+    border: 1px solid #08FEB8;
+    color: #08FEB8;
 }
 
 .ArticleThumbnail h3 {

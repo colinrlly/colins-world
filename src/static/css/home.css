@@ -1,9 +1,17 @@
-.introP {
-    color: white;
+.introContainer {
     width: 75%;
     margin: 50px auto;
-    font-size: 1.7em;
+}
+
+.intro {
+    color: white;
+    font-size: 2.1em;
     font-family: 'Vollkorn', serif;
     letter-spacing: .05em;
     font-weight: lighter;
+    text-decoration: none;
+}
+
+.highlight:hover {
+    color: #08FEB8;
 }

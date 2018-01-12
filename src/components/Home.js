@@ -7,7 +7,11 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <p className='introP'>Hello, my name is Colin Reilly and I am a Computer Science student at Rochester Institute of Technology. I create full stack web applications, analyze petascale databases, and much more. Check out my work below.</p>
+                <div className="introContainer">
+                    <span className='intro'>Hello, my name is Colin Reilly and I am a Computer Science student at </span>
+                    <a href="http://www.rit.edu/" className='intro highlight'>Rochester Institute of Technology</a>
+                    <span className='intro'>. I create full stack web applications, analyze petascale databases, and much more.</span>
+                </div>
                 <ArticleList 
                     url='http://localhost:3001/api/articles' 
                     pollInterval={2000}/>
