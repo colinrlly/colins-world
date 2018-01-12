@@ -1,5 +1,5 @@
 html {
-    background-color: #292929;
+    background-color: #222;
 }
 
 .ArticleList {
@@ -17,18 +17,28 @@ html {
 .ArticleThumbnail {
     width: 300px;
     height: 200px;
-    background: #B3B3B3;
-    color: #242424;
+    background: #222;
+    border: 1px solid white;
+    color: white;
     padding: 25px;
+}
+
+.ArticleThumbnail:hover {
+    background: #B3B3B3;
+    border: none;
+    color: #242424;
 }
 
 .ArticleThumbnail h3 {
     font-size: 2em;
     margin-top: 14px;
+    font-family: 'Unica One', cursive;
+    font-weight: lighter;
 }
 
 .ArticleThumbnail p {
     font-size: 1.2em;
+    font-family: 'Vollkorn', serif;
 }
 
 .link {

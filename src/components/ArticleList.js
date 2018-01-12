@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import ArticleThumbnail from './ArticleThumbnail';
 import Isotope from 'isotope-layout'
+import ArticleThumbnail from './ArticleThumbnail';
 
 import '../static/css/articleList.css'
 
