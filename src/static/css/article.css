@@ -1,17 +1,10 @@
-.introContainer {
-    width: 75%;
-    margin: 50px auto;
-}
-
-.intro {
+.articleContainer {
     color: white;
     font-size: 2.3em;
     font-family: 'Vollkorn', serif;
     letter-spacing: .05em;
     font-weight: lighter;
     text-decoration: none;
-}
-
-.highlight:hover {
-    color: #08FEB8;
+    width: 75%;
+    margin: 0 auto;
 }
