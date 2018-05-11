@@ -5,7 +5,7 @@ class ArticleThumbnail extends Component {
     render() {
         return (
             <div className="ArtThmbContainer">
-                <Link to={`/articles/${this.props.title}`} className="link">
+                <Link to={`/articles/${this.props.url_name}`} className="link">
                     <div className="ArticleThumbnail">
                         <h3>{ this.props.title }</h3>
                         <p>{ this.props.summary }</p>

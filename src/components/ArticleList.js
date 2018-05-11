@@ -10,7 +10,7 @@ class ArticleList extends Component {
     constructor(props) {
         super(props);
         this.state = { data: [] };
-        this.loadArticlesFromServer = this.loadArticlesFromServer.bind(this);
+        this.loadArticlesFromServer = this.loadArticlesFromServer.bind( this );
         this.initIsotope = this.initIsotope.bind( this );
     }
 
@@ -43,11 +43,11 @@ class ArticleList extends Component {
                     <ArticleThumbnail 
                         key={ article['_id'] }
                         title={ article.title }
+                        url_name={ article.url_name }
                         summary={ article.summary }
                         date={ article.date }
                         thumbnail={ article.thumbnail }
                         tags={ article.tags }
-                        article={ article.article }
                     />
             )
         })
