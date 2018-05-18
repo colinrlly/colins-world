@@ -1,10 +1,20 @@
 .articleContainer {
-    color: white;
+    color: white;    
+    width: 75%;    
+    margin: 0 auto;
+    padding-top: 3%;
+}
+
+.articleContainer p {
     font-size: 2.3em;
     font-family: 'Vollkorn', serif;
     letter-spacing: .05em;
     font-weight: lighter;
-    text-decoration: none;
-    width: 75%;
-    margin: 0 auto;
+}
+
+.articleContainer .subtitle {
+    font-size: 3em;
+    margin-top: 14px;
+    font-family: 'Unica One', cursive;
+    font-weight: lighter;
 }
