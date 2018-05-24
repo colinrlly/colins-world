@@ -1,6 +1,6 @@
 .articleContainer {
     color: white;    
-    width: 75%;    
+    width: 700px;    
     margin: 0 auto;
     padding-top: 3%;
 }
@@ -17,4 +17,35 @@
     margin-top: 14px;
     font-family: 'Unica One', cursive;
     font-weight: lighter;
+}
+
+.articleContainer .title {
+    font-size: 4em;
+    font-family: 'Unica One', cursive;
+    font-weight: bold;
+    letter-spacing: .1em;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.articleContainer .underTitle {
+    font-size: 1.5em;
+    font-family: 'Unica One', cursive;
+    font-weight: lighter;
+}
+
+.articleContainer .underTitleSpacer {
+    position: relative; 
+    bottom: 5px;
+    margin: 0 5px 0 5px;
+}
+
+.articleContainer .githubLinkContainer {
+    display: inline-block;
+}
+
+.articleContainer .underTitleContainer {
+    display: block;
+    margin-bottom: 50px;
+    text-align: center;
 }

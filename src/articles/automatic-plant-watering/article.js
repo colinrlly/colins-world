@@ -11,8 +11,8 @@ export default function article(props) {
             <p>Because plants are sweet and I want to connect them to technology.</p>
             <h2 className="subtitle">HOW:</h2>
             <p>
-                <a href="http://www.instructables.com/id/Automatically-water-your-small-indoor-plant-using-/" className="highlight"> Here's </a>
-                the tutorial I followed.
+                <a href="http://www.instructables.com/id/Automatically-water-your-small-indoor-plant-using-/" className="highlight"> Here's</a>
+                &nbsp;the tutorial I followed.
             </p>
         </div>
     )

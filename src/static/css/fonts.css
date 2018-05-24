@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Unica+One|Vollkorn');
 
-.highlight:hover {
+.highlight {
     color: #08FEB8;
+}
+
+.highlight:hover {
+    text-decoration-color: #08FEB8;
 }
 
 a {

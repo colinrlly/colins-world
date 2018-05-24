@@ -45,9 +45,10 @@ class ArticleList extends Component {
                         title={ article.title }
                         url_name={ article.url_name }
                         summary={ article.summary }
-                        date={ article.date }
                         thumbnail={ article.thumbnail }
                         tags={ article.tags }
+                        github={ article.github }
+                        time={ article.time }
                     />
             )
         })
