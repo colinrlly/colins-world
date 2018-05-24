@@ -7,7 +7,9 @@ class ArticleContainer extends Component {
     render() {
         return (
             <div className="articleContainer">
-                <ArticleLoader article={this.props.article}/>
+                <h1>{this.props.title}</h1>
+                <ArticleLoader
+                    article={this.props.article}/>
             </div>
         )
     }

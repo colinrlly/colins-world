@@ -11,9 +11,10 @@ class App extends Component {
                 <Route exact path="/" render={ () => 
                     <Home/>
                 }/>
-                <Route path="/articles/:article" render={ ({match}) => 
+                <Route path="/articles/:article" render={ ({match, location}) => 
                     <ArticleContainer 
-                        article={match.params.article}/>
+                        title={ location.state.title }
+                        article={ match.params.article }/>
                 }/>
             </Switch>
         )
