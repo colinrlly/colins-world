@@ -49,3 +49,8 @@
     margin-bottom: 50px;
     text-align: center;
 }
+
+.articleContainer .centerPic {
+    display: block;
+    margin: auto auto;
+}

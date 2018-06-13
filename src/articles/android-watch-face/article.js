@@ -3,6 +3,7 @@ import React from 'react';
 export default function article(props) {
     return (
         <div>
+            <img class="centerPic" alt="watch face with bezzles" src={ require('./images/watch-face-w-watch.png') }/>
             <h2 className="subtitle">WHAT:</h2>
             <p>A watch face for my Android Wear smart watch.</p>
             <h2 className="subtitle">WHY:</h2>
