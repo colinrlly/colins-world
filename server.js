@@ -84,7 +84,7 @@ app.use('/static', express.static(path.join(__dirname + '/build/static')));
 // Route for logging MVP data
 app.post('/mvp_sensor_data', function(req, res) {
     console.log(req.body);
-    var mpv_data = new MVPData()
+    var mvp_data = new MVPData()
 
     mvp_data.status = req.body.status
     mvp_data.comment = req.body.comment
