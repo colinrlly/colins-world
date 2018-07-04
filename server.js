@@ -9,7 +9,7 @@ const path = require('path');
 var app = express();
 var router = express.Router();
 
-var port = process.env.API_PORT || 3001;
+var port = process.env.PORT || 3001;
 
 // Fix (node:5232) DeprecationWarning: Mongoose: mpromise is deprecated warning
 mongoose.Promise = global.Promise;
