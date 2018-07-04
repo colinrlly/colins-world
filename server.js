@@ -19,28 +19,28 @@ mongoose.connect('mongodb://colin:password@ds133657.mlab.com:33657/colins_world'
     useMongoClient: true,
 });
 
-// // Now we should configure the API to use bodyParser and look for 
-// // JSON data in the request body
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
+// Now we should configure the API to use bodyParser and look for 
+// JSON data in the request body
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-// // To prevent errors from Cross Origin Resource Sharing, we will set 
-// // our headers to allow CORS with middleware like so:
-// app.use(function(req, res, next) {
-//     res.setHeader('Access-Control-Allow-Origin', '*');
-//     res.setHeader('Access-Control-Allow-Credentials', 'true');
-//     res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
-//     res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
+// To prevent errors from Cross Origin Resource Sharing, we will set 
+// our headers to allow CORS with middleware like so:
+app.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
 
-// // And remove cacheing so we get the most recent comments
-//     res.setHeader('Cache-Control', 'no-cache');
-//     next();
-// });
+// And remove cacheing so we get the most recent comments
+    res.setHeader('Cache-Control', 'no-cache');
+    next();
+});
 
 // Now we can set the route path & initialize the API
-// router.get('/', function(req, res) {
-//     res.json({ message: 'API Initialized!'});
-// });
+router.get('/', function(req, res) {
+    res.json({ message: 'API Initialized!'});
+});
 
 // Adding the /articles route to our /api router 
 router.route('/articles')
