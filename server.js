@@ -51,7 +51,8 @@ router.route('/articles')
             res.send(err);
 
         // Responds with a json object of our database articles.
-        res.json(articles)
+        console.log(artices);
+        res.json(articles);
     });
 })
 .post(function(req, res) {  // Post new article to the datbase
