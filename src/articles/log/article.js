@@ -3,7 +3,7 @@ import React from 'react';
 export default function article(props) {
     return (
         <div>
-            <p className='marginBottom'><a href="https://time-tracker123.herokuapp.com" className="highlight">time-tracker123.herokuapp.com</a></p>
+            <p className='marginBottom'><a href="https://log-time.com" className="highlight">log-time.com</a></p>
             <p className='marginBottom'>In order to hold myself responsible for how I spend my time I needed a web app which allows me
                 to accurately track what I do and log the results in Google Calendar. To fill this need I created
                 Log.
@@ -20,7 +20,7 @@ export default function article(props) {
             <img className='marginBottom' src={ require('./images/time-tracker-resuming.gif') } alt='Resume timer Gif'/>
             <div className='dropInContainer'>
                 <p className='marginBottom'>I used Google's log in feature to add user's to Log. Each user has their own list of 
-                    activities, and their data automatically saves to their own calendar. FYI working with&nbsp;
+                    activities, and their data automatically saves to their own calendar. By the way: working with&nbsp;
                     <a href="https://developer.telerik.com/featured/oauth-has-ruined-everything/" className="highlight">OAuth is death</a>
                     .
                 </p>
