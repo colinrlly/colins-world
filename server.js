@@ -51,7 +51,7 @@ router.route('/articles')
             res.send(err);
 
         // Responds with a json object of our database articles.
-        console.log(artices);
+        console.log(articles);
         res.json(articles);
     });
 })
