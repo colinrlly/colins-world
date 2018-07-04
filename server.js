@@ -3,8 +3,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const Article = require('./src/models/ArticleModel')
 const path = require('path');
+
+const Article = require('./src/models/ArticleModel')
 
 var app = express();
 var router = express.Router();
@@ -78,6 +79,11 @@ app.use('/api', router);
 
 // When urls is preceded by /static serve files from build/static folder
 app.use('/static', express.static(path.join(__dirname + '/build/static')));
+
+// Route for logging MVP data
+app.post('/log-MVP-data', function(req, res) {
+    console.log(req);
+})
 
 // Dealing with client side routing
 app.get('*', function (req, res) {
