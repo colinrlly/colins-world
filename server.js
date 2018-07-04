@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 const Article = require('./src/models/ArticleModel')
+const MVPData = require('./src/models/MVPDataModel')
 
 var app = express();
 var router = express.Router();
@@ -83,6 +84,21 @@ app.use('/static', express.static(path.join(__dirname + '/build/static')));
 // Route for logging MVP data
 app.post('/mvp_sensor_data', function(req, res) {
     console.log(req.body);
+    var mpv_data = new MVPData()
+
+    mvp_data.status = req.body.status
+    mvp_data.comment = req.body.comment
+    mvp_data.name = req.body.name
+    mvp_data.timestamp = req.body.timestamp
+    mvp_data.value = req.body.value
+    mvp_data.attribute = req.body.attribute
+
+    mvp_data.save(function(err) {
+        if (err)
+            res.send(err);
+        res.json({ message: 'New MVP Data entry added to colins-world database!' });
+    })
+    
     res.sendStatus(200);
 })
 
