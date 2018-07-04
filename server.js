@@ -98,8 +98,6 @@ app.post('/mvp_sensor_data', function(req, res) {
             res.send(err);
         res.json({ message: 'New MVP Data entry added to colins-world database!' });
     })
-    
-    res.sendStatus(200);
 })
 
 // Dealing with client side routing
