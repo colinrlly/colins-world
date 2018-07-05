@@ -11,8 +11,8 @@ var MVPDataSchema = new Schema({
     comment: String,
     name: String,
     timestamp: String,
-    value: Date,
-    attribute: Number
+    value: Number,
+    attribute: String
 });
 
 //export our module to use in server.js
