@@ -85,12 +85,12 @@ app.post('/mvp_sensor_data', function(req, res) {
     // console.log(req.body);
     var mvp_data = new MVPData()
 
-    console.log('req.body.status ' + req.body.status)
-    console.log('req.body.comment ' + req.body.comment)
-    console.log('req.body.name ' + req.body.name)
-    console.log('req.body.timestamp ' + req.body.timestamp)
-    console.log('req.body.value ' + req.body.value)
-    console.log('req.body.attribute ' + req.body.attribute)
+    // console.log('req.body.status ' + req.body.status)
+    // console.log('req.body.comment ' + req.body.comment)
+    // console.log('req.body.name ' + req.body.name)
+    // console.log('req.body.timestamp ' + req.body.timestamp)
+    // console.log('req.body.value ' + req.body.value)
+    // console.log('req.body.attribute ' + req.body.attribute)
 
     mvp_data.status = req.body.status;
     mvp_data.comment = req.body.comment;
@@ -99,15 +99,15 @@ app.post('/mvp_sensor_data', function(req, res) {
     mvp_data.value = req.body.value;
     mvp_data.attribute = req.body.attribute;
 
-    console.log('mvp_data.status ' + mvp_data.status)
-    console.log('mvp_data.comment ' + mvp_data.comment)
-    console.log('mvp_data.name ' + mvp_data.name)
-    console.log('mvp_data.timestamp ' + mvp_data.timestamp)
-    console.log('mvp_data.value ' + mvp_data.value)
-    console.log('mvp_data.attribute ' + mvp_data.attribute)
+    // console.log('mvp_data.status ' + mvp_data.status)
+    // console.log('mvp_data.comment ' + mvp_data.comment)
+    // console.log('mvp_data.name ' + mvp_data.name)
+    // console.log('mvp_data.timestamp ' + mvp_data.timestamp)
+    // console.log('mvp_data.value ' + mvp_data.value)
+    // console.log('mvp_data.attribute ' + mvp_data.attribute)
 
-    console.log('req.body ' + req.body);
-    console.log('mvp_data ' + mvp_data);
+    // console.log('req.body ' + req.body);
+    // console.log('mvp_data ' + mvp_data);
 
     mvp_data.save(function(err) {
         if (err)
