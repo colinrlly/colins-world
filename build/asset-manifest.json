@@ -1,10 +1,11 @@
 {
-  "main.css": "static/css/main.145115cc.css",
-  "main.css.map": "static/css/main.145115cc.css.map",
-  "main.js": "static/js/main.ec020812.js",
-  "main.js.map": "static/js/main.ec020812.js.map",
+  "main.css": "static/css/main.49cbb64e.css",
+  "main.css.map": "static/css/main.49cbb64e.css.map",
+  "main.js": "static/js/main.e08bf072.js",
+  "main.js.map": "static/js/main.e08bf072.js.map",
   "static\\media\\time-tracker-resuming.gif": "static/media/time-tracker-resuming.909726d7.gif",
   "static\\media\\time-tracker-sign-in.gif": "static/media/time-tracker-sign-in.187dc418.gif",
   "static\\media\\time-tracker1.0.gif": "static/media/time-tracker1.0.f6e57ddb.gif",
-  "static\\media\\time-tracker2.0.gif": "static/media/time-tracker2.0.a134f099.gif"
+  "static\\media\\time-tracker2.0.gif": "static/media/time-tracker2.0.a134f099.gif",
+  "static\\media\\watch-face-w-watch.png": "static/media/watch-face-w-watch.008e8014.png"
 }
