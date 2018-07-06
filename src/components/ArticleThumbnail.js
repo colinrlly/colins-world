@@ -8,8 +8,8 @@ class ArticleThumbnail extends Component {
                 <Link to={{ 
                     pathname: `/articles/${ this.props.url_name }`, 
                     state: { title: this.props.title,
-                                github: this.props.github,
-                                time: this.props.time } }}
+                             github: this.props.github,
+                             time: this.props.time } }}
                     className="link">
                     <div className="ArticleThumbnail">
                         <h3>{ this.props.title }</h3>

@@ -9,14 +9,14 @@ class ArticleContainer extends Component {
             <div className='articleContainer'>
                 <h1 className='title'>{ this.props.title }</h1>
                 <div className='underTitleContainer'>
+                    <span className='underTitle'>{ this.props.time }</span>
                     { this.props.github ?
                         <div className='githubLinkContainer'>
-                            <a href={ this.props.github } className='underTitle highlight'><span>GITHUB</span></a> 
                             <span className='underTitle underTitleSpacer'>.</span>
+                            <a href={ this.props.github } className='underTitle highlight'><span>GITHUB</span></a> 
                         </div>
                         : '' 
                     }
-                    <span className='underTitle'>{ this.props.time }</span>
                 </div>
                 <ArticleLoader
                     article={ this.props.article }/>

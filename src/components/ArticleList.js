@@ -27,8 +27,9 @@ class ArticleList extends Component {
         new Isotope( grid, {
             itemSelector: '.ArtThmbContainer',
             masonry: {
-                columnWidth: 400,
-                isFitWidth: true
+                columnWidth: 350,
+                isFitWidth: true,
+                gutter: 50
             }
         });
     }

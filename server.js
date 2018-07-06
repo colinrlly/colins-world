@@ -1,74 +1,71 @@
 'use strict'
 
-//first we import our dependencies…
-var express = require('express');
-var mongoose = require('mongoose');
-var bodyParser = require('body-parser');
-var Article = require('./src/models/ArticleModel')
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const path = require('path');
 
-//and create our instances
+const Article = require('./src/models/ArticleModel')
+const MVPData = require('./src/models/MVPDataModel')
+
 var app = express();
 var router = express.Router();
 
-//set our port to either a predetermined port number if you have set 
-//it up, or 3001
-var port = process.env.API_PORT || 3001;
+var port = process.env.PORT || 3001;
 
-//fix (node:5232) DeprecationWarning: Mongoose: mpromise is deprecated warning
+// Fix (node:5232) DeprecationWarning: Mongoose: mpromise is deprecated warning
 mongoose.Promise = global.Promise;
 
-//db config
+// DB config
 mongoose.connect('mongodb://colin:password@ds133657.mlab.com:33657/colins_world', {
     useMongoClient: true,
-})
+});
 
-//now we should configure the API to use bodyParser and look for 
-//JSON data in the request body
+// Now we should configure the API to use bodyParser and look for 
+// JSON data in the request body
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-//To prevent errors from Cross Origin Resource Sharing, we will set 
-//our headers to allow CORS with middleware like so:
+// To prevent errors from Cross Origin Resource Sharing, we will set 
+// our headers to allow CORS with middleware like so:
 app.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Credentials', 'true');
     res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
 
-//and remove cacheing so we get the most recent comments
+// And remove cacheing so we get the most recent comments
     res.setHeader('Cache-Control', 'no-cache');
     next();
 });
 
-//now we can set the route path & initialize the API
+// Now we can set the route path & initialize the API
 router.get('/', function(req, res) {
     res.json({ message: 'API Initialized!'});
 });
 
-//adding the /articles route to our /api router 
+// Adding the /articles route to our /api router 
 router.route('/articles')
-//retrieve all articles from the database
-.get(function(req, res) {
-    //looks at our article Schema
+.get(function(req, res) {  // Retrieve all articles from the database
+    // Looks at our article Schema
     Article.find(function(err, articles) {
         if (err)
             res.send(err);
 
-        //responds with a json object of our database articles.
-        res.json(articles)
+        // Responds with a json object of our database articles.
+        res.json(articles);
     });
 })
-//post new article to the datbase
-.post(function(req, res) {
+.post(function(req, res) {  // Post new article to the datbase
     var article = new Article();
 
-    //body parser lets us use the req.body
-    article.title = req.body.title,
-    article.summary = req.body.summary,
-    article.date = req.body.date,
-    article.thumbnail = req.body.thumbnail,
-    article.tags = req.body.tags.split(','),
-    article.article = req.body.article
+    // Body parser lets us use the req.body
+    article.title = req.body.title;
+    article.summary = req.body.summary;
+    article.date = req.body.date;
+    article.thumbnail = req.body.thumbnail;
+    article.tags = req.body.tags.split(',');
+    article.article = req.body.article;
 
     article.save(function(err) {
         if (err) 
@@ -77,10 +74,56 @@ router.route('/articles')
     });
 });
 
-//Use our router configuration when we call /api
+// Use our api router configuration when we call /api
 app.use('/api', router);
 
-//starts the server and listens for requests
+// When urls is preceded by /static serve files from build/static folder
+app.use('/static', express.static(path.join(__dirname + '/build/static')));
+
+// Route for logging MVP data
+app.post('/mvp_sensor_data', function(req, res) {
+    // console.log(req.body);
+    var mvp_data = new MVPData()
+
+    // console.log('req.body.status ' + req.body.status)
+    // console.log('req.body.comment ' + req.body.comment)
+    // console.log('req.body.name ' + req.body.name)
+    // console.log('req.body.timestamp ' + req.body.timestamp)
+    // console.log('req.body.value ' + req.body.value)
+    // console.log('req.body.attribute ' + req.body.attribute)
+
+    mvp_data.status = req.body.status;
+    mvp_data.comment = req.body.comment;
+    mvp_data.name = req.body.name;
+    mvp_data.timestamp = req.body.timestamp;
+    mvp_data.value = req.body.value;
+    mvp_data.attribute = req.body.attribute;
+
+    // console.log('mvp_data.status ' + mvp_data.status)
+    // console.log('mvp_data.comment ' + mvp_data.comment)
+    // console.log('mvp_data.name ' + mvp_data.name)
+    // console.log('mvp_data.timestamp ' + mvp_data.timestamp)
+    // console.log('mvp_data.value ' + mvp_data.value)
+    // console.log('mvp_data.attribute ' + mvp_data.attribute)
+
+    // console.log('req.body ' + req.body);
+    // console.log('mvp_data ' + mvp_data);
+
+    mvp_data.save(function(err) {
+        if (err)
+            res.send(err);
+        res.json({ message: 'New MVP Data entry added to colins-world database!' });
+    })
+
+    // res.json({ message: 'just testin yo' });
+})
+
+// Dealing with client side routing
+app.get('*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+// Starts the server and listens for requests
 app.listen(port, function() {
     console.log(`api running on port ${port}`);
 });
