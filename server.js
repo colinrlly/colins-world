@@ -74,6 +74,36 @@ router.route('/articles')
     });
 });
 
+router.route('/mvp_temp')
+.get(function(req, res) {  // Retrieve mvp temp data
+    const yesterday = new Date(new Date().getTime() - (24 * 60 * 60 * 1000));
+    const now = new Date();
+    const yesterday_string = yesterday.toISOString().slice(0, -1);
+    const now_string = now.toISOString().slice(0, -1);
+
+    console.log(yesterday);
+    console.log(now);
+
+    MVPData.find({
+        "timestamp" : {
+                '$gte': yesterday_string
+            },
+            'attribute': 'temperature'
+        },
+        '-_id value timestamp',
+        function(err, mvp_data){
+            if (err) 
+                res.send(err);
+            
+            // Map to array of temps
+            var temps = mvp_data.map(x => x['value']);
+            var times = mvp_data.map(x => x['timestamp'])
+
+            res.json({ temps: temps, times: times });
+        }
+    );
+});
+
 // Use our api router configuration when we call /api
 app.use('/api', router);
 
@@ -122,6 +152,8 @@ app.post('/mvp_sensor_data', function(req, res) {
 app.get('*', function (req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
+
+
 
 // Starts the server and listens for requests
 app.listen(port, function() {

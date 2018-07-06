@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 
 import ArticleContainer from './ArticleContainer'
 import Home from './Home'
+import LineChart from './LineChart'
 
 import '../static/css/base.css'
 import '../static/css/fonts.css'
@@ -20,6 +21,9 @@ class App extends Component {
                         github={ location.state.github }
                         time={ location.state.time }
                         article={ match.params.article }/>  // comes from matching url
+                }/>
+                <Route path="/plants" render={ () =>
+                    <LineChart/>
                 }/>
             </Switch>
         )
