@@ -13,6 +13,8 @@ var MVPDataSchema = new Schema({
     timestamp: String,
     value: Number,
     attribute: String
+}, {
+    timestamps: true
 });
 
 //export our module to use in server.js

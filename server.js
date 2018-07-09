@@ -78,8 +78,8 @@ router.route('/mvp_temp')
 .get(function(req, res) {  // Retrieve mvp temp data
     const yesterday = new Date(new Date().getTime() - (24 * 60 * 60 * 1000));
     const now = new Date();
-    const yesterday_string = yesterday.toISOString().slice(0, -1);
-    const now_string = now.toISOString().slice(0, -1);
+    const yesterday_string = yesterday.toISOString();
+    const now_string = now.toISOString();
 
     console.log(yesterday);
     console.log(now);
