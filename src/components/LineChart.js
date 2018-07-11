@@ -3,7 +3,7 @@ import Chart from 'chart.js';
 
 class LineChart extends Component {
     componentDidMount() {
-        fetch('api/mvp_temp')
+        fetch('api/mvp_sensor_data')
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);

@@ -44,7 +44,7 @@ router.get('/', function(req, res) {
     res.json({ message: 'API Initialized!'});
 });
 
-// Adding the /articles route to our /api router 
+// Adding the /articles route to our /api router
 router.route('/articles')
 .get(function(req, res) {  // Retrieve all articles from the database
     // Looks at our article Schema
@@ -74,44 +74,8 @@ router.route('/articles')
     });
 });
 
-router.route('/mvp_temp')
-.get(function(req, res) {  // Retrieve mvp temp data
-    const yesterday = new Date(new Date().getTime() - (24 * 60 * 60 * 1000));
-    const now = new Date();
-    const yesterday_string = yesterday.toISOString();
-    const now_string = now.toISOString();
-
-    console.log(yesterday);
-    console.log(now);
-
-    MVPData.find({
-        "timestamp" : {
-                '$gte': yesterday_string
-            },
-            'attribute': 'temperature'
-        },
-        '-_id value timestamp',
-        function(err, mvp_data){
-            if (err) 
-                res.send(err);
-            
-            // Map to array of temps
-            var temps = mvp_data.map(x => x['value']);
-            var times = mvp_data.map(x => x['timestamp'])
-
-            res.json({ temps: temps, times: times });
-        }
-    );
-});
-
-// Use our api router configuration when we call /api
-app.use('/api', router);
-
-// When urls is preceded by /static serve files from build/static folder
-app.use('/static', express.static(path.join(__dirname + '/build/static')));
-
-// Route for logging MVP data
-app.post('/mvp_sensor_data', function(req, res) {
+router.route('/mvp_sensor_data')
+.post(function(req, res) {
     // console.log(req.body);
     var mvp_data = new MVPData()
 
@@ -147,13 +111,45 @@ app.post('/mvp_sensor_data', function(req, res) {
 
     // res.json({ message: 'just testin yo' });
 })
+.get(function(req, res) {  // Retrieve mvp temp data
+    const yesterday = new Date(new Date().getTime() - (24 * 60 * 60 * 1000));
+    const now = new Date();
+    const yesterday_string = yesterday.toISOString();
+    const now_string = now.toISOString();
+
+    console.log(yesterday);
+    console.log(now);
+
+    MVPData.find({
+        "timestamp" : {
+                '$gte': yesterday_string
+            },
+            'attribute': 'temperature'
+        },
+        '-_id value timestamp',
+        function(err, mvp_data){
+            if (err) 
+                res.send(err);
+            
+            // Map to array of temps
+            var temps = mvp_data.map(x => x['value']);
+            var times = mvp_data.map(x => x['timestamp'])
+
+            res.json({ temps: temps, times: times });
+        }
+    );
+});
+
+// Use our api router configuration when we call /api
+app.use('/api', router);
+
+// When urls is preceded by /static serve files from build/static folder
+app.use('/static', express.static(path.join(__dirname + '/build/static')));
 
 // Dealing with client side routing
 app.get('*', function (req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
-
-
 
 // Starts the server and listens for requests
 app.listen(port, function() {
