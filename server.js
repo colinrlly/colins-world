@@ -113,29 +113,45 @@ router.route('/mvp_sensor_data')
 })
 .get(function(req, res) {  // Retrieve mvp temp data
     const yesterday = new Date(new Date().getTime() - (24 * 60 * 60 * 1000));
-    const now = new Date();
     const yesterday_string = yesterday.toISOString();
-    const now_string = now.toISOString();
 
-    console.log(yesterday);
-    console.log(now);
-
-    MVPData.find({
+    MVPData.find({  // Query that DB
         "timestamp" : {
                 '$gte': yesterday_string
             },
-            'attribute': 'temperature'
+            'attribute': {
+                '$in': ['temperature', 'humidity']
+            }
         },
-        '-_id value timestamp',
+        '-_id value timestamp attribute',
         function(err, mvp_data){
             if (err) 
                 res.send(err);
             
-            // Map to array of temps
-            var temps = mvp_data.map(x => x['value']);
-            var times = mvp_data.map(x => x['timestamp'])
+            // Create 4 arrays:
+            //  temp and it's corresponding times, humidity and it's times
+            var temps = [];
+            var temp_times = [];
+            var humids = [];
+            var humid_times = [];
 
-            res.json({ temps: temps, times: times });
+            for (var i = 0; i < mvp_data.length; i++) {
+                if (mvp_data[i]['attribute'] == 'temperature') {
+                    temps.push(mvp_data[i]['value']);
+                    temp_times.push(mvp_data[i]['timestamp']);
+                } else {
+                    humids.push(mvp_data[i]['value']);
+                    humid_times.push(mvp_data[i]['timestamp']);
+                }
+            }
+
+            // Return that json
+            res.json({
+                temps: temps,
+                temp_times: temp_times,
+                humids: humids,
+                humid_times: humid_times
+            });
         }
     );
 });

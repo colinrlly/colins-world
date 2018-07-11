@@ -3,7 +3,7 @@ import Chart from 'chart.js';
 
 class LineChart extends Component {
     componentDidMount() {
-        fetch('api/mvp_sensor_data')
+        fetch('http://localhost:3001/api/mvp_sensor_data')
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
@@ -12,11 +12,11 @@ class LineChart extends Component {
                 new Chart(ctx, {
                     type: 'line',
                     data: {
-                        labels: data.times, // Times stamps
+                        labels: data.temp_times,
                         datasets: [{
                             label: 'temperature',
-                            data: data.temps,  // Temperature
-                            borderColor: 'rgba(8, 254, 184, 1)',
+                            data: data.temps,
+                            borderColor: 'rgba(8, 254, 184, 1)',  // Neon cyan color
                             borderWidth: 1,
                             fill: false,
                         }]
