@@ -1,0 +1,22 @@
+.underTitle {
+    color: white;
+    font-size: 1.5em;
+    font-family: 'Unica One', cursive;
+    font-weight: lighter;
+}
+
+.underTitleSpacer {
+    position: relative; 
+    bottom: 5px;
+    margin: 0 5px 0 5px;
+}
+
+.githubLinkContainer {
+    display: inline-block;
+}
+
+.underTitleContainer {
+    display: block;
+    margin-bottom: 100px;
+    text-align: center;
+}
