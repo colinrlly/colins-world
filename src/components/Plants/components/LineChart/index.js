@@ -14,6 +14,7 @@ class LineChart extends Component {
                     borderColor: 'rgba(8, 254, 184, 1)',  // Neon cyan color
                     borderWidth: 1,
                     fill: false,
+                    radius: 2
                 }]
             }
         })

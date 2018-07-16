@@ -4,9 +4,32 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
+const multer = require('multer');
+const fs = require('fs');
 
-const Article = require('./src/models/ArticleModel')
-const MVPData = require('./src/models/MVPDataModel')
+// Sets up where to store POST images, and how to rename them
+const storage = multer.diskStorage({
+    destination: function (req, res, cb) {
+        cb(null, 'uploads/')
+    },
+    filename: function(req, file, cb) {
+        let extArray = file.mimetype.split("/");
+        let extension = extArray[extArray.length - 1];
+
+        var time = new Date().toISOString();
+        time = time.replace(/:/g, '-');
+        let file_name = time + '.' + extension;
+
+        cb(null, file_name);
+    }
+});
+
+// Used to store POSTed images
+const upload = multer({ storage: storage });
+
+const Article = require('./src/models/ArticleModel');
+const MVPData = require('./src/models/MVPDataModel');
+const MVPImg = require('./src/models/MVPImgModel');
 
 var app = express();
 var router = express.Router();
@@ -79,13 +102,6 @@ router.route('/mvp_sensor_data')
     // console.log(req.body);
     var mvp_data = new MVPData()
 
-    // console.log('req.body.status ' + req.body.status)
-    // console.log('req.body.comment ' + req.body.comment)
-    // console.log('req.body.name ' + req.body.name)
-    // console.log('req.body.timestamp ' + req.body.timestamp)
-    // console.log('req.body.value ' + req.body.value)
-    // console.log('req.body.attribute ' + req.body.attribute)
-
     mvp_data.status = req.body.status;
     mvp_data.comment = req.body.comment;
     mvp_data.name = req.body.name;
@@ -93,23 +109,11 @@ router.route('/mvp_sensor_data')
     mvp_data.value = req.body.value;
     mvp_data.attribute = req.body.attribute;
 
-    // console.log('mvp_data.status ' + mvp_data.status)
-    // console.log('mvp_data.comment ' + mvp_data.comment)
-    // console.log('mvp_data.name ' + mvp_data.name)
-    // console.log('mvp_data.timestamp ' + mvp_data.timestamp)
-    // console.log('mvp_data.value ' + mvp_data.value)
-    // console.log('mvp_data.attribute ' + mvp_data.attribute)
-
-    // console.log('req.body ' + req.body);
-    // console.log('mvp_data ' + mvp_data);
-
     mvp_data.save(function(err) {
         if (err)
             res.send(err);
         res.json({ message: 'New MVP Data entry added to colins-world database!' });
     })
-
-    // res.json({ message: 'just testin yo' });
 })
 .get(function(req, res) {  // Retrieve mvp temp data
     const yesterday = new Date(new Date().getTime() - (24 * 60 * 60 * 1000));
@@ -154,6 +158,27 @@ router.route('/mvp_sensor_data')
             });
         }
     );
+});
+
+router.route('/mvp_img_data')
+.post(upload.single('file'), function(req, res) {  // Save MVP Image data to database and server
+    var mvp_img = new MVPImg;
+    mvp_img.img.data = fs.readFileSync(req.file.path)
+    mvp_img.img.contentType = 'image/jpeg';
+    mvp_img.save();
+
+    res.json({ message: 'New MVP Image entry added to colins-world database!' });
+})
+.get(function(req, res) {
+    MVPImg.find({}, 'img', function(err, mvp_img) {
+        if (err)
+            res.send(err);
+
+        mvp_img = mvp_img[0];  // Mongoose returns array
+
+        res.contentType(mvp_img.img.contentType);
+        res.send(mvp_img.img.data);
+    });
 });
 
 // Use our api router configuration when we call /api
