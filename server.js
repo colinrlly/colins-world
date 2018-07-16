@@ -176,8 +176,6 @@ router.route('/mvp_img_data')
 
         mvp_img = mvp_img[0];  // Mongoose returns array
 
-        console.log('sending image data');
-
         res.contentType(mvp_img.img.contentType);
         res.send(mvp_img.img.data);
     });
