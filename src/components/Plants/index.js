@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import LineChart from './components/LineChart/index.js'
 import Moment from 'moment-timezone'
 
+import LineChart from './components/LineChart/index.js'
+import Picture from './components/Picture/index.js'
 
 class Plants extends Component {
     constructor(props) {
@@ -10,9 +11,19 @@ class Plants extends Component {
         this.time_format = 'h:mm a';
 
         this.state = {
-            data: {}
+            data: {},
+            img: {}
         };
-    }
+    };
+
+    arrayBufferToBase64(buffer) {
+        var binary = '';
+        var bytes = [].slice.call(new Uint8Array(buffer));
+      
+        bytes.forEach((b) => binary += String.fromCharCode(b));
+      
+        return window.btoa(binary);
+    };
 
     componentDidMount() {
         fetch('http://localhost:3001/api/mvp_sensor_data')  // Make request
@@ -33,14 +44,28 @@ class Plants extends Component {
                 this.setState({
                     data: f_data
                 })
+            });
+
+        fetch('http://localhost:3001/api/mvp_img_data').then((res) => {
+            res.arrayBuffer().then((buffer) => {
+                var base64Flag = 'data:image/jpeg;base64,';
+                var imageStr = this.arrayBufferToBase64(buffer);
+
+                this.setState({
+                    img: base64Flag + imageStr
+                })
             })
-    }
+        });
+    };
 
     render() {
         const {data} = this.state;
+        const {img} = this.state;
 
         return (
             <div>
+                <Picture
+                    img_data={img}/>
                 <LineChart 
                     label='Temperature'
                     labels={data['temp_times']}
