@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import Moment from 'moment-timezone'
 
-import LineChart from './components/LineChart/index.js'
-import Picture from './components/Picture/index.js'
-import UnderTitle from '../UnderTitle/index.js'
 import Title from '../Title/index.js'
+import About from './components/About/index.js'
+import UnderTitle from '../UnderTitle/index.js'
+import Picture from './components/Picture/index.js'
+import LineChart from './components/LineChart/index.js'
+
+import './style.css'
 
 class Plants extends Component {
     constructor(props) {
@@ -65,11 +68,12 @@ class Plants extends Component {
         const {img} = this.state;
 
         return (
-            <div>
+            <div className='container'>
                 <Title
-                    title='PLANTS'/>
+                    title='FOOD COMPUTER'/>
                 <UnderTitle
                     time='SUMMER 2018'/>
+                <About/>
                 <Picture
                     img_data={img}/>
                 <LineChart 
