@@ -26,7 +26,7 @@ class Plants extends Component {
     };
 
     componentDidMount() {
-        fetch('http://localhost:3001/api/mvp_sensor_data')  // Make request
+        fetch('/api/mvp_sensor_data')  // Make request
             .then((res) => res.json())  // Parse promise
             .then((f_data) => {  // Do stuff with the retrieved data
                 // Format and localize the time labels
@@ -46,7 +46,7 @@ class Plants extends Component {
                 })
             });
 
-        fetch('http://localhost:3001/api/mvp_img_data').then((res) => {
+        fetch('/api/mvp_img_data').then((res) => {
             res.arrayBuffer().then((buffer) => {
                 var base64Flag = 'data:image/jpeg;base64,';
                 var imageStr = this.arrayBufferToBase64(buffer);
