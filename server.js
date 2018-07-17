@@ -170,15 +170,13 @@ router.route('/mvp_img_data')
     res.json({ message: 'New MVP Image entry added to colins-world database!' });
 })
 .get(function(req, res) {
-    MVPImg.find({}, 'img', function(err, mvp_img) {
+    MVPImg.findOne({}, 'img createdAt', function(err, mvp_img) {
         if (err)
             res.send(err);
 
-        mvp_img = mvp_img[0];  // Mongoose returns array
-
         res.contentType(mvp_img.img.contentType);
         res.send(mvp_img.img.data);
-    });
+    }).sort({ createdAt: 'desc' });
 });
 
 // Use our api router configuration when we call /api
