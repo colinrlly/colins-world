@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './style.css'
+
 class LineChart extends Component {
     componentDidUpdate() {
         this.img.src = this.props.img_data;
@@ -11,7 +13,9 @@ class LineChart extends Component {
                 <img
                     ref={img => {
                         this.img = img;
-                    }}/>
+                    }}
+                    className='picture'
+                    alt='Last Plant'/>
             </div>
         )
     }
