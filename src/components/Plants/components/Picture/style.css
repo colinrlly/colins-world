@@ -1,3 +1,10 @@
+.plant_image_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+
 .picture {
     width: 100%;
     height: auto;

@@ -9,7 +9,7 @@ class LineChart extends Component {
 
     render() {
         return (
-            <div>
+            <div className='plant_image_container'>
                 <img
                     ref={img => {
                         this.img = img;

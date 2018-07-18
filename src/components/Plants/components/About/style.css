@@ -21,11 +21,7 @@
 }
 
 @media (min-width: 940px) {
-    .revealer_btn {
-        display: none;
-    }
-
     .about_text {
-        display: block;
+        width: 940px;
     }
 }
