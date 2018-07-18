@@ -14,28 +14,27 @@ class ArticleList extends Component {
         this.initIsotope = this.initIsotope.bind( this );
     }
 
-    loadArticlesFromServer( callback ) {
+    loadArticlesFromServer() {
         axios.get( this.props.url )
             .then( res => {
                 this.setState({ data: res.data });
-                callback();
             })
     }
 
     initIsotope() {
-        var grid = ReactDOM.findDOMNode( this );
-        new Isotope( grid, {
-            itemSelector: '.ArtThmbContainer',
-            masonry: {
-                columnWidth: 350,
-                isFitWidth: true,
-                gutter: 50
-            }
-        });
+        // var grid = ReactDOM.findDOMNode( this );
+        // new Isotope( grid, {
+        //     itemSelector: '.ArtThmbContainer',
+        //     masonry: {
+        //         columnWidth: 350,
+        //         isFitWidth: true,
+        //         gutter: 50
+        //     }
+        // });
     }
 
     componentDidMount() {
-        this.loadArticlesFromServer( this.initIsotope );
+        this.loadArticlesFromServer();
     }
 
     render() {
