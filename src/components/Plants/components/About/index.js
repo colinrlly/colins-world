@@ -11,6 +11,7 @@ class About extends Component {
         };
 
         this.onRevealerClick = this.onRevealerClick.bind(this);
+        window.addEventListener("resize", this.onResize.bind(this));
     }
 
     onRevealerClick() {
@@ -19,8 +20,18 @@ class About extends Component {
         })
     };
 
+    onResize() {
+        this.setState({ shown: window.innerWidth >= 940 });
+    }
+
+    componentDidMount() {
+        this.onResize();
+    }
+
     render() { 
         const {shown} = this.state;
+
+
 
         return (
             <div>

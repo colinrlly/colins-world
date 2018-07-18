@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Chart from 'chart.js';
 
+import './style.css'
+
 class LineChart extends Component {
     componentDidUpdate() {
         var ctx = this.chart.getContext('2d');
@@ -16,19 +18,21 @@ class LineChart extends Component {
                     fill: false,
                     radius: 2
                 }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
             }
         })
     }
 
     render() {
         return (
-            <div>
-                <canvas 
+            <div className='line_chart_container'>
+                <canvas
                     ref={canvas => {  // Set ref instead of ID for reusability
                         this.chart = canvas;
-                    }}
-                    width="400" 
-                    height="400">
+                    }}>
                 </canvas>
             </div>
         )
