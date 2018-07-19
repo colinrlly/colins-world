@@ -30,10 +30,10 @@ class About extends Component {
             <div>
                 {shown ? 
                     <p className='about_text'>The&nbsp;
-                    <a href="https://developer.telerik.com/featured/oauth-has-ruined-everything/" className="highlight">MVP</a>
+                    <a href="https://forum.openag.media.mit.edu/t/300-food-computer-mvp/2343" className="highlight">MVP</a>
                     &nbsp;(Minimal Viable Product) is a low cost, hydroponic growth chamber; designed as a simplified version of the&nbsp;
-                    <a href="https://developer.telerik.com/featured/oauth-has-ruined-everything/" className="highlight">MIT OpenAg Personal Food Computer</a>.
-                    This page show live statistics streamed from my MVP build. The charts are updated every 20 mins and the picture is taken every hour.
+                    <a href="https://www.media.mit.edu/groups/open-agriculture-openag/overview/" className="highlight">MIT OpenAg Personal Food Computer</a>.
+                    I built this page to show live statistics streamed from my MVP build. The charts are updated every 20 mins and the picture is taken every hour.
                     Through this project I explored hydropnics, controlled environment agriculture, and the internet of things. This is an 
                     open source project based around a Raspberry Pi 'brain' and Python code, 
                     with a MongoDB database.</p>

@@ -1,6 +1,6 @@
 .line_chart_container {
     position: relative;
-    height: 49%;
+    height: 75vw;
 }
 
 @media (min-width: 940px) {
