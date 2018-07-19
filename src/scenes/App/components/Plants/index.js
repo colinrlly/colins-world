@@ -18,9 +18,18 @@ class Plants extends Component {
         this.state = {
             data: {},
             img: {},
-            chart_height: '100px'
+            chart_height: '100px',
+            over_940px: false
         };
+
+        window.addEventListener("resize", this.onResize.bind(this));
     };
+
+    onResize() {
+        this.setState({
+            over_940px: window.innerWidth >= 940
+        });
+    }
 
     arrayBufferToBase64(buffer) {
         var binary = '';
@@ -31,7 +40,9 @@ class Plants extends Component {
         return window.btoa(binary);
     };
 
-    componentDidMount() { 
+    componentDidMount() {
+        this.onResize();
+
         fetch('/api/mvp_sensor_data')  // Make request
             .then((res) => res.json())  // Parse promise
             .then((f_data) => {  // Do stuff with the retrieved data
@@ -67,6 +78,7 @@ class Plants extends Component {
     render() {
         const {data} = this.state;
         const {img} = this.state;
+        const {over_940px} = this.state;
 
         return (
             <div className='container'>
@@ -74,7 +86,8 @@ class Plants extends Component {
                     title='MVP FOOD COMPUTER'/>
                 <UnderTitle
                     time='SUMMER 2018'/>
-                <About/>
+                <About
+                    over_940px={over_940px}/>
                 <div className='data_container'>
                     <div className='picture_container'>
                         <Picture
@@ -86,11 +99,13 @@ class Plants extends Component {
                         <LineChart 
                             label='Temperature (c)'
                             labels={data['temp_times']}
-                            data={data['temps']}/>
+                            data={data['temps']}
+                            over_940px={over_940px}/>
                         <LineChart
                             label='Humidity (%)'
                             labels={data['humid_times']}
-                            data={data['humids']}/>
+                            data={data['humids']}
+                            over_940px={over_940px}/>
                     </div>
                 </div>
             </div>

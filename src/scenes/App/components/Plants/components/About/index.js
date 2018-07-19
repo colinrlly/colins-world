@@ -11,7 +11,10 @@ class About extends Component {
         };
 
         this.onRevealerClick = this.onRevealerClick.bind(this);
-        window.addEventListener("resize", this.onResize.bind(this));
+
+        this.state = {
+            shown: this.props.over_940px
+        }
     }
 
     onRevealerClick() {
@@ -20,17 +23,9 @@ class About extends Component {
         })
     };
 
-    onResize() {
-        this.setState({ shown: window.innerWidth >= 940 });
-    }
-
-    componentDidMount() {
-        this.onResize();
-    }
-
     render() { 
         const {shown} = this.state;
-        https://forum.openag.media.mit.edu/t/300-food-computer-mvp/2343
+
         return (
             <div>
                 {shown ? 

@@ -4,6 +4,10 @@ import Chart from 'chart.js';
 import './style.css'
 
 class LineChart extends Component {
+    constructor(props) {
+        super(props);
+    }
+
     componentDidUpdate() {
         var ctx = this.chart.getContext('2d');
         new Chart(ctx, {
@@ -19,10 +23,16 @@ class LineChart extends Component {
                     radius: 2
                 }]
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false
-            }
+            options: 
+                this.props.over_940px ?
+                    {
+                        responsive: true,
+                        maintainAspectRatio: false
+                    } 
+                    : 
+                    {
+                        maintainAspectRatio: true
+                    }
         })
     }
 

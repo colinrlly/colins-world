@@ -2,3 +2,10 @@
     position: relative;
     height: 49%;
 }
+
+@media (min-width: 940px) {
+    .line_chart_container {
+        position: relative;
+        height: 49%;
+    }
+}
