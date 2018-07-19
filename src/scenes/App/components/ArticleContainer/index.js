@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import ArticleLoader from './ArticleLoader'
-import UnderTitle from './UnderTitle/index.js';
-import Title from './Title/index.js'
 
-import '../static/css/article.css'
+import Title from '../../../../components/Title/index.js'
+import UnderTitle from '../../../../components/UnderTitle/index.js';
+import ArticleLoader from './components/ArticleLoader/index.js'
+
+import './style.css'
 
 class ArticleContainer extends Component {
     render() {

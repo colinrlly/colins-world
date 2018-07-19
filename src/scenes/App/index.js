@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom'
 
-import ArticleContainer from './ArticleContainer'
-import Home from './Home'
-import Plants from './Plants/index.js'
+import ArticleContainer from './components/ArticleContainer/index.js'
+import Home from './components/Home/index.js'
+import Plants from './components/Plants/index.js'
 
-import '../static/css/base.css'
-import '../static/css/fonts.css'
+import './styles.css'
 
 class App extends Component {
     render() {

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import axios from 'axios';
-import Isotope from 'isotope-layout'
-import ArticleThumbnail from './ArticleThumbnail';
+// import Isotope from 'isotope-layout'
 
-import '../static/css/articleList.css'
+import ArticleThumbnail from './components/ArticleThumbnail/index.js';
+
+import './style.css'
 
 class ArticleList extends Component {
     constructor(props) {

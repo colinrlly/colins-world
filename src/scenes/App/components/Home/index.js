@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import ArticleList from './ArticleList';
 
-import '../static/css/home.css';
+import ArticleList from './components/ArticleList/index.js';
+
+import './style.css';
 
 class Home extends Component {
     render() {

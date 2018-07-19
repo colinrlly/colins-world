@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Moment from 'moment-timezone'
 
-import Title from '../Title/index.js'
+import Title from '../../../../components/Title/index.js'
+import UnderTitle from '../../../../components/UnderTitle/index.js'
 import About from './components/About/index.js'
-import UnderTitle from '../UnderTitle/index.js'
 import Picture from './components/Picture/index.js'
 import LineChart from './components/LineChart/index.js'
 

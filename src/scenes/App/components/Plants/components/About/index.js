@@ -38,7 +38,8 @@ class About extends Component {
                     <a href="https://developer.telerik.com/featured/oauth-has-ruined-everything/" className="highlight">MVP</a>
                     &nbsp;(Minimal Viable Product) is a low cost, hydroponic growth chamber; designed as a simplified version of the&nbsp;
                     <a href="https://developer.telerik.com/featured/oauth-has-ruined-everything/" className="highlight">MIT OpenAg Personal Food Computer</a>.
-                    This project allowed me explore hydropnics, controlled environment agriculture, and the internet of things. This is an 
+                    This page show live statistics streamed from my MVP build. The charts are updated every 20 mins and the picture is taken every hour.
+                    Through this project I explored hydropnics, controlled environment agriculture, and the internet of things. This is an 
                     open source project based around a Raspberry Pi 'brain' and Python code, 
                     with a MongoDB database.</p>
                 :

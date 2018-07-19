@@ -3,7 +3,7 @@ import React from 'react';
 export default function article(props) {
     return (
         <div>
-            <p className='marginBottom'><a href="https://log-time.com" className="highlight">log-time.com</a></p>
+            <p className='marginBottom'><a href="http://log-time.com" className="highlight">log-time.com</a></p>
             <p className='marginBottom'>In order to hold myself responsible for how I spend my time I needed a web app which allows me
                 to accurately track what I do and log the results in Google Calendar. To fill this need I created
                 Log.
