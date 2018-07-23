@@ -1,6 +1,10 @@
 /***** Fonts *****/
 @import url('https://fonts.googleapis.com/css?family=Unica+One|Vollkorn');
 
+body, html, #root {
+    height: 100%;
+}
+
 .highlight {
     color: #08FEB8;
 }
