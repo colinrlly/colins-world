@@ -14,7 +14,7 @@ class Home extends Component {
                     <span className='intro'>. Currently I am interested in controlled environment agriculture and web development.</span>
                 </div>
                 <ArticleList
-                    url='/api/articles'
+                    url='http://localhost:3001/api/articles'
                     pollInterval={2000}/>
             </div>
         )

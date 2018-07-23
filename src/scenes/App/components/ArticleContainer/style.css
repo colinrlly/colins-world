@@ -1,65 +1,73 @@
 .articleContainer {
-    color: white;    
-    width: 100%;    
+    color: white;     
     margin: 0 auto;
+    padding: 0 10px 0 10px;
+    max-width: 940px;
 }
 
 .articleContainer p {
-    font-size: 1.8em;
+    font-size: 1em;
     font-family: 'Vollkorn', serif;
     letter-spacing: .05em;
     line-height: 1.5em;
     font-weight: lighter;
+    margin-top: 0;
 }
 
 .articleContainer .subtitle {
-    font-size: 3em;
-    margin-top: 14px;
-    font-family: 'Unica One', cursive;
-    font-weight: lighter;
-}
-
-.articleContainer p, .articleContainer .subtitle {
-    width: 700px;
-}
-
-.articleContainer img {
-    margin: 0 auto 0 auto;
-    display: block;
-}
-
-.articleContainer .marginBottom {
-    margin: 0 auto 100px auto;
-}
-
-.articleContainer .dropInContainer {
-    /* background-color: rgb(23, 23, 23); */
-    padding: 100px 0 100px 0;
-}
-
-.articleContainer .underTitle {
     font-size: 1.5em;
-    font-family: 'Unica One', cursive;
+    margin: 14px 0 0 0;
+    font-family: 'Unica One', sans-serif;
     font-weight: lighter;
-}
-
-.articleContainer .underTitleSpacer {
-    position: relative; 
-    bottom: 5px;
-    margin: 0 5px 0 5px;
-}
-
-.articleContainer .githubLinkContainer {
-    display: inline-block;
-}
-
-.articleContainer .underTitleContainer {
-    display: block;
-    margin-bottom: 100px;
-    text-align: center;
 }
 
 .articleContainer .centerPic {
     display: block;
     margin: auto auto;
 }
+
+.articleContainer img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* .articleContainer p, .articleContainer .subtitle {
+    width: 700px;
+} */
+
+/* .articleContainer img {
+    margin: 0 auto 0 auto;
+    display: block;
+} */
+
+/* .articleContainer .marginBottom {
+    margin: 0 auto 100px auto;
+} */
+/* 
+.articleContainer .dropInContainer {
+    background-color: rgb(23, 23, 23);
+    padding: 100px 0 100px 0;
+} */
+
+/* .articleContainer .underTitle {
+    font-size: 1.5em;
+    font-family: 'Unica One', cursive;
+    font-weight: lighter;
+} */
+
+/* .articleContainer .underTitleSpacer {
+    position: relative; 
+    bottom: 5px;
+    margin: 0 5px 0 5px;
+} */
+
+/* .articleContainer .githubLinkContainer {
+    display: inline-block;
+} */
+/* 
+.articleContainer .underTitleContainer {
+    display: block;
+    margin-bottom: 100px;
+    text-align: center;
+} */
+

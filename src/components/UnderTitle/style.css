@@ -1,3 +1,9 @@
+.underTitleContainer {
+    display: block;
+    margin-bottom: 10vh;
+    text-align: center;
+}
+
 .underTitle {
     color: white;
     font-size: 1.5em;
@@ -13,10 +19,4 @@
 
 .githubLinkContainer {
     display: inline-block;
-}
-
-.underTitleContainer {
-    display: block;
-    margin-bottom: 100px;
-    text-align: center;
 }
