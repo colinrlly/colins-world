@@ -22,18 +22,6 @@ class ArticleList extends Component {
             })
     }
 
-    initIsotope() {
-        // var grid = ReactDOM.findDOMNode( this );
-        // new Isotope( grid, {
-        //     itemSelector: '.ArtThmbContainer',
-        //     masonry: {
-        //         columnWidth: 350,
-        //         isFitWidth: true,
-        //         gutter: 50
-        //     }
-        // });
-    }
-
     componentDidMount() {
         this.loadArticlesFromServer();
     }
