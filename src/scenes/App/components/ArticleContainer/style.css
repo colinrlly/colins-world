@@ -31,43 +31,8 @@
     margin-bottom: 10px;
 }
 
-/* .articleContainer p, .articleContainer .subtitle {
-    width: 700px;
-} */
-
-/* .articleContainer img {
-    margin: 0 auto 0 auto;
-    display: block;
-} */
-
-/* .articleContainer .marginBottom {
-    margin: 0 auto 100px auto;
-} */
-/* 
-.articleContainer .dropInContainer {
-    background-color: rgb(23, 23, 23);
-    padding: 100px 0 100px 0;
-} */
-
-/* .articleContainer .underTitle {
-    font-size: 1.5em;
-    font-family: 'Unica One', cursive;
-    font-weight: lighter;
-} */
-
-/* .articleContainer .underTitleSpacer {
-    position: relative; 
-    bottom: 5px;
-    margin: 0 5px 0 5px;
-} */
-
-/* .articleContainer .githubLinkContainer {
-    display: inline-block;
-} */
-/* 
-.articleContainer .underTitleContainer {
-    display: block;
-    margin-bottom: 100px;
-    text-align: center;
-} */
-
+@media (min-width: 600px) {
+    .articleContainer {
+        padding: 36px;
+    }
+}

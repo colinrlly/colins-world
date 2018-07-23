@@ -8,3 +8,9 @@
     margin: 0 0 10px 0;
     padding-top: 10vh;
 }
+
+@media (min-width: 600px) {
+    .title {
+        font-size: 4em;
+    }
+}

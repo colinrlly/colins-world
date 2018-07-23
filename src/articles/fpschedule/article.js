@@ -4,7 +4,7 @@ export default function article(props) {
     return (
         <div>
             <h2 className="subtitle">WHAT:</h2>
-            <p>A web-app to better manage employee schedules where users can create
+            <p>A web-app to better manage employee schedules, users can create
                 profiles and input work times. They can then view other employee
                 schedules, request time off, or request shift coverage.</p>
             <h2 className="subtitle">WHY:</h2>

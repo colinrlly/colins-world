@@ -20,3 +20,9 @@
 .githubLinkContainer {
     display: inline-block;
 }
+
+@media (min-width: 600px) {
+    .underTitle {
+        font-size: 1.5em;
+    }
+}
