@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-// import ReactDOM from 'react-dom';
 import axios from 'axios';
-// import Isotope from 'isotope-layout'
 
 import ArticleThumbnail from './components/ArticleThumbnail/index.js';
 
@@ -12,7 +10,6 @@ class ArticleList extends Component {
         super(props);
         this.state = { data: [] };
         this.loadArticlesFromServer = this.loadArticlesFromServer.bind( this );
-        this.initIsotope = this.initIsotope.bind( this );
     }
 
     loadArticlesFromServer() {
