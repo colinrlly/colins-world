@@ -6,7 +6,7 @@
 }
 
 .articleContainer p {
-    font-size: 1em;
+    font-size: 18px;
     font-family: 'Vollkorn', serif;
     letter-spacing: .05em;
     line-height: 1.5em;
@@ -15,8 +15,8 @@
 }
 
 .articleContainer .subtitle {
-    font-size: 1.5em;
-    margin: 14px 0 0 0;
+    font-size: 30px;
+    margin: 14px 0 10px 0;
     font-family: 'Unica One', sans-serif;
     font-weight: lighter;
 }
