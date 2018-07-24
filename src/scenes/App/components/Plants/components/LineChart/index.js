@@ -21,12 +21,14 @@ class LineChart extends Component {
             },
             options:{
                 responsive: true,
-                maintainAspectRatio: false
+                maintainAspectRatio: false,
+                animation: false
             }
         })
     }
 
     render() {
+        console.log('rendering line chart');
         return (
             <div className='line_chart_container'>
                 <canvas

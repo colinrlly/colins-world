@@ -26,9 +26,13 @@ class Plants extends Component {
     };
 
     onResize() {
-        this.setState({
-            over_940px: window.innerWidth >= 940
-        });
+        // Only re-render when over_940px actually changes
+        var {over_940px} = this.state;
+        if (over_940px !== (window.innerWidth >= 940)) {
+            this.setState({
+                over_940px: window.innerWidth >= 940
+            });
+        }
     }
 
     arrayBufferToBase64(buffer) {
@@ -41,8 +45,9 @@ class Plants extends Component {
     };
 
     componentDidMount() {
-        this.onResize();
+        // this.onResize();
 
+        // Get chart data
         fetch('/api/mvp_sensor_data')  // Make request
             .then((res) => res.json())  // Parse promise
             .then((f_data) => {  // Do stuff with the retrieved data
@@ -63,6 +68,7 @@ class Plants extends Component {
                 })
         });
 
+        // Get picture data
         fetch('/api/mvp_img_data').then((res) => {
             res.arrayBuffer().then((buffer) => {
                 var base64Flag = 'data:image/jpeg;base64,';
