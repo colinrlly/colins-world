@@ -1,0 +1,27 @@
+.PlantThumbnail {
+    color: white;
+    border: 1px solid white;
+    height: 200px;
+    margin: auto auto;
+    margin-bottom: 15px;
+}
+
+.PlantThumbnail h3 {
+    margin: 25px;
+    font-size: 2em;
+    margin-top: 14px;
+    font-family: 'Unica One', cursive;
+    font-weight: lighter;
+}
+
+.PlantThumbnail p {
+    font-size: 1.2em;
+    font-family: 'Vollkorn', serif;
+    margin: 25px;
+}
+
+.PlantThumbnail .link {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
