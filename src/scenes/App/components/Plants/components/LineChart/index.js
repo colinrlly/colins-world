@@ -28,7 +28,6 @@ class LineChart extends Component {
     }
 
     render() {
-        console.log('rendering line chart');
         return (
             <div className='line_chart_container'>
                 <canvas

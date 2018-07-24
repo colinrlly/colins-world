@@ -27,13 +27,14 @@ const storage = multer.diskStorage({
 // Used to store POSTed images
 const upload = multer({ storage: storage });
 
+// Database Models
 const Article = require('./src/models/ArticleModel');
 const MVPData = require('./src/models/MVPDataModel');
 const MVPImg = require('./src/models/MVPImgModel');
 
+// Server variables
 var app = express();
 var router = express.Router();
-
 var port = process.env.PORT || 3001;
 
 // Fix (node:5232) DeprecationWarning: Mongoose: mpromise is deprecated warning
@@ -57,17 +58,17 @@ app.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
 
-// And remove cacheing so we get the most recent comments
+// Remove cacheing so we get the most recent comments
     res.setHeader('Cache-Control', 'no-cache');
     next();
 });
 
-// Now we can set the route path & initialize the API
+// Set the route path & initialize the API
 router.get('/', function(req, res) {
     res.json({ message: 'API Initialized!'});
 });
 
-// Adding the /articles route to our /api router
+// Add the /articles route to our /api router
 router.route('/articles')
 .get(function(req, res) {  // Retrieve all articles from the database
     // Looks at our article Schema
@@ -99,7 +100,6 @@ router.route('/articles')
 
 router.route('/mvp_sensor_data')
 .post(function(req, res) {
-    // console.log(req.body);
     var mvp_data = new MVPData()
 
     mvp_data.status = req.body.status;
@@ -174,8 +174,8 @@ router.route('/mvp_img_data')
         if (err)
             res.send(err);
 
-        res.contentType(mvp_img.img.contentType);
-        res.send(mvp_img.img.data);
+        res.contentType('json');
+        res.send(mvp_img);
     }).sort({ createdAt: 'desc' });
 });
 

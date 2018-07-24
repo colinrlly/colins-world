@@ -13,11 +13,13 @@ class Plants extends Component {
     constructor(props) {
         super(props);
 
-        this.time_format = 'h:mm a';
+        this.chart_time_format = 'h:mm a';
+        this.picture_time_format = 'MM/DD/YY h:mm a';
 
         this.state = {
             data: {},
             img: {},
+            img_created_at: '',
             chart_height: '100px',
             over_940px: false
         };
@@ -45,7 +47,7 @@ class Plants extends Component {
     };
 
     componentDidMount() {
-        // this.onResize();
+        this.onResize();
 
         // Get chart data
         fetch('/api/mvp_sensor_data')  // Make request
@@ -56,12 +58,12 @@ class Plants extends Component {
                     .map(x => Moment(x)
                         .local()
                         .tz(Moment.tz.guess())
-                        .format(this.time_format));
+                        .format(this.chart_time_format));
                 f_data['humid_times'] = f_data['humid_times']
                     .map(x => Moment(x)
                         .local()
                         .tz(Moment.tz.guess())
-                        .format(this.time_format));
+                        .format(this.chart_time_format));
 
                 this.setState({
                     data: f_data
@@ -69,21 +71,31 @@ class Plants extends Component {
         });
 
         // Get picture data
-        fetch('/api/mvp_img_data').then((res) => {
-            res.arrayBuffer().then((buffer) => {
-                var base64Flag = 'data:image/jpeg;base64,';
-                var imageStr = this.arrayBufferToBase64(buffer);
+        fetch('/api/mvp_img_data')
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data);
+            // Created image data array
+            var base64Flag = 'data:image/jpeg;base64,';
+            var imageStr = this.arrayBufferToBase64(data.img.data.data);
 
-                this.setState({
-                    img: base64Flag + imageStr
-                })
+            // Convert created_at time to local/proper format
+            var created_at = Moment(data.createdAt)
+                                .local()
+                                .tz(Moment.tz.guess())
+                                .format(this.picture_time_format);
+
+            this.setState({
+                img: base64Flag + imageStr,
+                img_created_at: created_at
             })
-        });
+        })
     };
 
     render() {
         const {data} = this.state;
         const {img} = this.state;
+        const {img_created_at} = this.state;
         const {over_940px} = this.state;
 
         return (
@@ -98,7 +110,8 @@ class Plants extends Component {
                     <div className='picture_container'>
                         <Picture
                             img_data={img}
-                            className='plant_pic'/>
+                            className='plant_pic'
+                            created_at={img_created_at}/>
                     </div>
                     <div className='chart_container'
                         ref={div => this.chart_container = div}>

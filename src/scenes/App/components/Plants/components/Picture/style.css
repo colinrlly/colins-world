@@ -5,7 +5,13 @@
     height: 100%;
 }
 
-.picture {
+.plant_image_container .picture {
     width: 100%;
     height: auto;
+}
+
+.plant_image_container .created_at {
+    color: white;
+    float: right;
+    font-family: 'Vollkorn', serif;
 }
