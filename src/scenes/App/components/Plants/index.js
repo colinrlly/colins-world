@@ -14,7 +14,7 @@ class Plants extends Component {
         super(props);
 
         this.chart_time_format = 'h:mm a';
-        this.picture_time_format = 'MM/DD/YY h:mm a';
+        this.picture_time_format = 'MM/DD/YY h:mm A';
 
         this.state = {
             data: {},
@@ -50,7 +50,7 @@ class Plants extends Component {
         this.onResize();
 
         // Get chart data
-        fetch('/api/mvp_sensor_data')  // Make request
+        fetch('http://192.168.254.44:3001/api/mvp_sensor_data')  // Make request
             .then((res) => res.json())  // Parse promise
             .then((f_data) => {  // Do stuff with the retrieved data
                 // Format and localize the time labels
@@ -71,7 +71,7 @@ class Plants extends Component {
         });
 
         // Get picture data
-        fetch('/api/mvp_img_data')
+        fetch('http://192.168.254.44:3001/api/mvp_img_data')
         .then((res) => res.json())
         .then((data) => {
             console.log(data);

@@ -170,10 +170,14 @@ router.route('/mvp_img_data')
     res.json({ message: 'New MVP Image entry added to colins-world database!' });
 })
 .get(function(req, res) {
+    MVPImg.findOne({}, 'img', 'img')
+
     MVPImg.findOne({}, 'img createdAt', function(err, mvp_img) {
         if (err)
             res.send(err);
 
+        console.log(mvp_img);
+        
         res.contentType('json');
         res.send(mvp_img);
     }).sort({ createdAt: 'desc' });

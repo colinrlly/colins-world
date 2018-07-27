@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './style.css'
 
-class LineChart extends Component {
+class Picture extends Component {
     componentDidUpdate() {
         this.img.src = this.props.img_data;
     }
@@ -17,11 +17,11 @@ class LineChart extends Component {
                         }}
                         className='picture'
                         alt='Last Plant'/>
-                    <span className='created_at'>Picture Taken: {this.props.created_at}</span>
+                    <span className='created_at'>PICTURE TAKEN: {this.props.created_at}</span>
                 </div>
             </div>
         )
     }
 }
 
-export default LineChart;
+export default Picture;

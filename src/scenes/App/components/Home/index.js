@@ -18,7 +18,7 @@ class Home extends Component {
     }
 
     loadArticlesFromServer() {
-        axios.get( '/api/articles' )
+        axios.get( 'http://192.168.254.44:3001/api/articles' )
             .then( res => {
                 this.setState({ 
                     data: res.data,
