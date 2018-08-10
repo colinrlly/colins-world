@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const multer = require('multer');
 const fs = require('fs');
-
+ 
 // Sets up where to store POST images, and how to rename them
 const storage = multer.diskStorage({
     destination: function (req, res, cb) {
