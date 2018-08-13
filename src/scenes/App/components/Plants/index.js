@@ -50,7 +50,7 @@ class Plants extends Component {
         this.onResize();
 
         // Get chart data
-        fetch('http://localhost:3001/api/mvp_sensor_data')  // Make request
+        fetch('/api/mvp_sensor_data')  // Make request
             .then((res) => res.json())  // Parse promise
             .then((f_data) => {  // Do stuff with the retrieved data
                 // Format and localize the time labels
@@ -71,10 +71,9 @@ class Plants extends Component {
         });
 
         // Get picture data
-        fetch('http://localhost:3001/api/mvp_img_data')
+        fetch('/api/mvp_img_data')
         .then((res) => res.json())
         .then((data) => {
-            console.log(data);
             // Created image data array
             var base64Flag = 'data:image/jpeg;base64,';
             var imageStr = this.arrayBufferToBase64(data.img.data.data);
