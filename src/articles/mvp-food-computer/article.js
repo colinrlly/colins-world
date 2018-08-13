@@ -30,7 +30,7 @@ export default function article(props) {
             <a href="http://cea.cals.cornell.edu/attachments/lettuce%20handbook%20section%201%20system.pdf" className="highlight"> Cornel's ebb and flow system</a>, or 
             the MVP's basic bin full of water with plants sitting in it.</p>
 
-            <img src={ require('./images/box_dashboard.png') } alt='MVP Box'/>
+            <img src={ require('./images/box_dashboard.jpg') } alt='MVP Box'/>
 
             <p>Building a dashboard and sending information around the internet leveraged my web development knowledge and hopefully will be able to answer some questions the OpenAg community has 
             on storing the MVP's data in the cloud. Also, figuring out how to send images from the Raspberry Pi to my web server inspired me to write an 
@@ -77,7 +77,7 @@ export default function article(props) {
             reaching such levels. I taped the edges of the box closed which will hopefully create a more air tight seal, encouraging a greater amount of air to exit via the evacuation fan. I have 
             yet to see if this solves the problem.</p>
 
-            <img src={ require('./images/MVP_temp.png') } alt='MVP Box'/>
+            <img src={ require('./images/MVP_temp.jpg') } alt='MVP Box'/>
             
             <p>The light on the top of my MVP was actually slightly tilted. I didn't think much of this, the inside of the box is so reflective I assumed
             such a minor problem wouldn't make a difference. As time went on though the plants in the direction the light was tilted actually grew more than the plants on the other side.
