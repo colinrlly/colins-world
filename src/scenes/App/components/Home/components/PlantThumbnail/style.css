@@ -4,6 +4,7 @@
     height: 200px;
     margin: auto auto;
     margin-bottom: 15px;
+    max-width: 960px;
 }
 
 .PlantThumbnail:hover {
