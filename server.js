@@ -37,7 +37,7 @@ var app = express();
 var router = express.Router();
 var port = process.env.PORT || 3001;
 
-// Fix (node:5232) DeprecationWarning: Mongoose: mpromise is deprecated warning
+// Fix penis (node:5232) DeprecationWarning: Mongoose: mpromise is deprecated warning
 mongoose.Promise = global.Promise;
 
 // DB config
