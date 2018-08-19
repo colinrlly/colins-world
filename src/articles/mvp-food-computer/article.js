@@ -57,11 +57,12 @@ export default function article(props) {
             adjustment of the light position could have such a potentially large impact on plant growth.</p>
 
             <h2  className="subtitle">IDEAS FOR THE FUTURE</h2>
-            <p>Precision aggriculture has already proven itself as incredibly important, estimated as a 
+            <p>Precision agriculture has already proven itself as incredibly important, estimated as a 
             <a href="https://www.bloomberg.com/news/articles/2018-06-20/deere-suit-sheds-light-on-race-for-240-billion-farm-tech-market" className="highlight"> $240 billion dollar industry</a>. But how far will it go? Will entirely controlled growing
-            enviroments be the future of food? What role will tech have in humanities oldest front?</p>
+            environments be the future of food? What role will tech have in humanities oldest front?</p>
 
-            <p>One day i'd like to grow more intersting plants in my setup, such as herbs and maybe tea plants. Growing food locally, in regions it doesn't naturally grow is a huge potential for this tech. Certain regions of the world such as China and Costa Rica produce some the most sought after tea and coffee in the world. What factors contribute to their success? And can those factors be replicated
+            <p>One day I'd like to grow more interesting plants in my setup, such as herbs and maybe tea plants. Growing food locally, in regions it doesn't naturally grow, is a huge potential for this tech. Certain regions of the world such as China 
+            and Costa Rica produce some of the most sought after tea and coffee in the world. What factors contribute to their success? And can those factors be replicated
             in a controlled environment anywhere in the world?</p>
         </div>
     )
