@@ -18,7 +18,7 @@ class Home extends Component {
     }
 
     loadArticlesFromServer() {
-        axios.get( 'http://localhost:3001/api/articles' )
+        axios.get( '/api/articles' )
             .then( res => {
                 this.setState({ 
                     data: res.data,

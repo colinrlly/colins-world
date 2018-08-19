@@ -27,6 +27,11 @@ class LineChart extends Component {
         })
     }
 
+    shouldComponentUpdate(nextProps) {
+        // Don't rerender after the initial data load.
+        return this.props.data;
+    }
+
     render() {
         return (
             <div className='line_chart_container'>
