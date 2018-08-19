@@ -86,7 +86,7 @@ export default function article(props) {
 
             <h2  className="subtitle">IDEAS FOR THE FUTURE</h2>
             <p>Precision agriculture has already proven itself as incredibly important, estimated as a 
-            <a href="https://www.bloomberg.com/news/articles/2018-06-20/deere-suit-sheds-light-on-race-for-240-billion-farm-tech-market" className="highlight"> $240 billion dollar industry</a>. But how far will it go? Will entirely controlled growing
+            <a href="https://www.bloomberg.com/news/articles/2018-06-20/deere-suit-sheds-light-on-race-for-240-billion-farm-tech-market#" className="highlight"> $240 billion dollar industry</a>. But how far will it go? Will entirely controlled growing
             environments be the future of food? What role will tech have in humanities oldest front?</p>
 
             <p>One day I'd like to grow more interesting plants in my setup, such as herbs and maybe tea plants. Growing food locally, in regions it doesn't naturally grow, is a huge potential for this tech. Certain regions of the world such as China 
